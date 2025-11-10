@@ -40,8 +40,7 @@ async function runAutomation() {
       if (!email || !password) {
         throw new Error('EMAIL and PASSWORD environment variables must be set in .env file');
       }
-      console.log('Email:', email);
-      console.log('Password:', password);
+
       await page.getByRole('textbox', { name: 'Email address Required' }).fill(email);
       await page.getByRole('textbox', { name: 'Password Required' }).fill(password);
 
