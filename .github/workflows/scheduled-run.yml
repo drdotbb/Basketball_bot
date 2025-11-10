@@ -35,6 +35,8 @@ jobs:
           echo "PASSWORD=${{ secrets.PASSWORD }}" >> .env
       
       - name: Run automation script
+        env:
+          HEADLESS: 'true'
         run: npm run automate
       
       - name: Upload artifacts (if any)
