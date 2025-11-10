@@ -1,0 +1,21 @@
+{
+  "name": "playwright-basketball",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "automate": "tsx scripts/automate.ts",
+    "test": "playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^24.10.0",
+    "tsx": "^4.20.6"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
