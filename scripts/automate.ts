@@ -17,15 +17,9 @@ async function runAutomation() {
   try {
     console.log('Starting automation...');
     
-    // Run headless in CI environments (GitHub Actions), headed locally for debugging
-    const isCI = process.env.CI === 'true';
-    const headless = isCI || process.env.HEADLESS === 'true';
-    
-    console.log(`Running in ${headless ? 'headless' : 'headed'} mode`);
-    
     // Launch browser with headless-specific optimizations
     browser = await chromium.launch({
-      headless: headless,
+      headless: false, // Set to false for debugging
     });
     
     const context = await browser.newContext({
