@@ -50,5 +50,7 @@ jobs:
           path: |
             playwright-report/
             test-results/
+            error-screenshot.png
           retention-days: 7
+          if-no-files-found: ignore
 
