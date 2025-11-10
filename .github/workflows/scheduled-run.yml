@@ -35,9 +35,14 @@ jobs:
         run: npx playwright install --with-deps chromium
       
       - name: Create .env file from secrets
+        shell: bash
         run: |
-          echo "EMAIL=${{ secrets.EMAIL }}" >> .env
-          echo "PASSWORD=${{ secrets.PASSWORD }}" >> .env
+          {
+            EMAIL=$(echo -n '${{ secrets.EMAIL }}' | sed 's/[[:space:]]*$//' | tr -d '\r\n')
+            PASSWORD=$(echo -n '${{ secrets.PASSWORD }}' | sed 's/[[:space:]]*$//' | tr -d '\r\n')
+            echo "EMAIL=${EMAIL}"
+            echo "PASSWORD=${PASSWORD}"
+          } > .env
       
       - name: Run automation script with xvfb
         run: xvfb-run -a npm run automate
